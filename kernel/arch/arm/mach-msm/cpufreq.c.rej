@@ -1,0 +1,10 @@
+--- arch/arm/mach-msm/cpufreq.c
++++ arch/arm/mach-msm/cpufreq.c
+@@ -440,6 +492,7 @@
+ #endif
+ 
+ 	register_pm_notifier(&msm_cpufreq_pm_notifier);
++	register_early_suspend(&msm_cpu_early_suspend_handler);
+ 	return cpufreq_register_driver(&msm_cpufreq_driver);
+ }
+ 

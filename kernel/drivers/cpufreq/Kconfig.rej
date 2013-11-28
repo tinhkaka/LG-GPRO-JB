@@ -1,0 +1,24 @@
+--- drivers/cpufreq/Kconfig
++++ drivers/cpufreq/Kconfig
+@@ -123,6 +123,10 @@
+ 	---help---
+ 	  Use the CPUFreq governor 'wheatley' as default.
+ 
++config CPU_FREQ_DEFAULT_GOV_DANCEDANCE
++	bool "dancedance"
++	select CPU_FREQ_GOV_DANCEDANCE
++
+ endchoice
+ 
+ config CPU_FREQ_GOV_PERFORMANCE
+@@ -270,6 +274,10 @@
+ 	depends on CPU_FREQ
+ 
+ 
++config CPU_FREQ_GOV_DANCEDANCE
++	tristate "'dancedance' cpufreq governor"
++	depends on CPU_FREQ
++
+ menu "x86 CPU frequency scaling drivers"
+ depends on X86
+ source "drivers/cpufreq/Kconfig.x86"
